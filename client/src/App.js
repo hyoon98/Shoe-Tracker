@@ -1,11 +1,13 @@
+import { BrowserRouter, Route } from "react-router-dom";
+import Tracker from "./pages/Tracker";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Shoe Tracker</h1>
-      <ul>
-        <li></li>
-      </ul>
-    </div>
+    <BrowserRouter>
+      <Route exact path="/">
+        <Tracker />
+      </Route>
+    </BrowserRouter>
   );
 }
 

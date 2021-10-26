@@ -1,0 +1,16 @@
+body {
+  background: #2b6638;
+}
+
+.Shoes {
+  max-width: 70%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #f6f6f6;
+  padding: 1em;
+}
+
+.form {
+  margin: 0 auto;
+}

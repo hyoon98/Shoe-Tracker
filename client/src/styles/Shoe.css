@@ -1,0 +1,28 @@
+.item-container {
+  display: grid;
+  background: #f6f6f6;
+  grid-template-columns: 30% 70%;
+  padding: 0.5em;
+  max-height: 8em;
+  width: auto;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+
+.item-info-container {
+  display: grid;
+  grid-template-rows: 40% 35% 25%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.price {
+  display: flex;
+}
+
+.shoe-image {
+  max-height: inherit;
+  border-radius: 50%;
+  border: 1px solid #dadada;
+  margin: 0 auto;
+}
