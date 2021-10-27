@@ -1,5 +1,9 @@
 # Shoe-Tracker
 
+# Images
+![image](https://user-images.githubusercontent.com/74113651/139014935-dca815ca-a835-49c5-beb8-3ad0b9b5bd8b.png)
+
+
 # Running the Project
 1. cd into client folder and run `npm install`
 2. cd into server folder and set up a virtual environment for python
