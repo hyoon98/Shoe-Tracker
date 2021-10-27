@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap");
 body {
   background: #2b6638;
+  font-family: "Manrope";
+  margin: 0;
+}
+
+h1 {
+  color: #f6f6f6;
 }
 
 .Shoes {
@@ -10,7 +17,18 @@ body {
   background: #f6f6f6;
   padding: 1em;
 }
-
+label {
+  text-align: center;
+  color: #f6f6f6;
+}
 .form {
+  border-radius: 10px;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding: 2em;
+  text-justify: center;
+  justify-content: center;
 }

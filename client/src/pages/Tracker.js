@@ -2,6 +2,7 @@ import Shoe from "../components/Shoe";
 import { useState, useEffect } from "react";
 import "../styles/Tracker.css";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 function Tracker() {
   const [url, setUrl] = useState("");
@@ -10,20 +11,19 @@ function Tracker() {
   useEffect(() => {
     axios.get("http://localhost:5000/").then((res) => {
       setShoes(res.data);
-      console.log(res.data);
     });
   }, []);
 
   function submitHandler(e) {
     e.preventDefault();
     axios.post("http://localhost:5000/", { url: url }).then((res) => {
-      console.log(res.data);
+      window.location.reload();
     });
   }
 
   return (
     <div className="Tracker">
-      <h1>Shoe Tracker</h1>
+      <Navbar />
       <div className="Shoes">
         {shoes.map((shoe) => (
           <Shoe data={shoe} key={shoe.id} />
@@ -31,13 +31,16 @@ function Tracker() {
       </div>
       <div className="form">
         <form onSubmit={submitHandler}>
+          <label>
+            <h2>Add a Shoe</h2>
+          </label>
           <input
             type="text"
             onChange={(e) => {
               setUrl(e.target.value);
             }}
           />
-          <input type="submit" />
+          <input type="submit" value="Add URL" />
         </form>
       </div>
     </div>

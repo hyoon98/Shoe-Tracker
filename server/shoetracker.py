@@ -9,6 +9,7 @@ from flask_cors import CORS, cross_origin
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(options=chrome_options)
+browser.quit()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tracker.db'
@@ -66,16 +67,19 @@ def index():
                 "//h1[@class='product__name t-level-3 qa-product__name']").text
             shoe['price'] = driver.find_element_by_xpath(
                 "//span[@class='qa-single-price']").text
+            shoe['image'] = driver.find_element_by_xpath(
+                "//img[@class='srcset-image__content']"
+            ).get_attribute("src")
         return jsonify(shoes)
 
 
 @ app.route('/delete/<int:id>')
 @ cross_origin()
 def delete(id):
-    task_to_delete = Tracker.query.get_or_404(id)
+    shoe_to_delete = Tracker.query.get_or_404(id)
 
     try:
-        db.session.delete(task_to_delete)
+        db.session.delete(shoe_to_delete)
         db.session.commit()
         return redirect('/')
     except:
