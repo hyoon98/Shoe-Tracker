@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 import "../styles/Shoe.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -29,7 +30,9 @@ export default function Shoe({ data }) {
         icon={faTrash}
         onClick={(e) => {
           e.stopPropagation();
-          console.log("deleted");
+          Axios.delete(`http://localhost:5000/delete/${id}`).then((res) => {
+            window.location.reload();
+          });
         }}
       />
     </div>

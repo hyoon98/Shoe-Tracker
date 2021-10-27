@@ -25,9 +25,11 @@ function Tracker() {
     <div className="Tracker">
       <Navbar />
       <div className="Shoes">
-        {shoes.map((shoe) => (
-          <Shoe data={shoe} key={shoe.id} />
-        ))}
+        {shoes.length === 0 ? (
+          <h2>Loading shoes or list is empty!</h2>
+        ) : (
+          shoes.map((shoe) => <Shoe data={shoe} key={shoe.id} />)
+        )}
       </div>
       <div className="form">
         <form onSubmit={submitHandler}>

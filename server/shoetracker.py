@@ -9,7 +9,6 @@ from flask_cors import CORS, cross_origin
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(options=chrome_options)
-browser.quit()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tracker.db'
@@ -73,15 +72,16 @@ def index():
         return jsonify(shoes)
 
 
-@ app.route('/delete/<int:id>')
+@ app.route('/delete/<int:id>', methods=['DELETE'])
 @ cross_origin()
 def delete(id):
+    print(id)
     shoe_to_delete = Tracker.query.get_or_404(id)
 
     try:
         db.session.delete(shoe_to_delete)
         db.session.commit()
-        return redirect('/')
+        return "Deleted"
     except:
         return 'There was issue deleting task'
 
