@@ -1,6 +1,6 @@
 # Shoe-Tracker
 
-#Running the Project
+# Running the Project
 1. cd into client folder and run `npm install`
 2. cd into server folder and set up a virtual environment for python
 3. Startup the virtual environemnt and run `pip install -r requirements.txt`
